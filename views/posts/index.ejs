@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+
+<table align="center" width="1024" border="0" cellspacing="0" cellpadding="0">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <div class="posts">
+    <% include partials/top %>
+
+<!-- main start-->
+
+<!-- views/posts/index.ejs -->
+<td class = "posts" colspan="7" height="453">
+<div class="index">
+  <a href="/posts/new"><button>작성</button></a>
+  <% if(user) {%>
+    <a href="/logout" class="float_right"><button>로그아웃</button></a>
+    <a href="/users/<%= user._id %>" class="float_right"><button>내 정보 (<%= user.nickname %>)</button></a>
+  <% } else { %>
+    <a href="/login" class="float_right"><button>로그인</button></a>
+    <a href="/users/new" class="float_right"><button>회원 가입</button></a>
+  <% } %>
+  <ul>
+      <li class="header"> 제목 <span>날짜</span></li>
+    <% data.forEach(function(e){ %>
+      <li>
+        <a href="/posts/<%= e._id %>"><%= e.title %></a>
+        <span><%= e.createdAt.toLocaleDateString() %></span>
+      </li>
+    <% }) %>
+  </ul>
+  </ul>
+</div>
+</td>
+<!-- main end -->
+    </div><!--posts end -->
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+  </body>
+</html>

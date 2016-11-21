@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<table align="center" width="1024" border="0" cellspacing="0" cellpadding="0">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <div class="users">
+<!-- main start-->
+
+<!-- views/users/edit.ejs -->
+<td class = "users" colspan="7" height="453">
+<div class="edit">
+  <h3>사용자 정보 수정</h3>
+  <form id="update_user" class="users_form" action="/users/<%= user._id %>?_method=put" method="post">
+    <label>현재 비밀번호* <span id="password_error" class="error_message"><%= passwordError?passwordError:"" %></span></label>
+    <input type="password" id="password" name="user[password]" value="">
+    <hr><br>
+    <label>Email* <span id="email_error" class="error_message"><%= emailError?emailError:"" %></span></label>
+    <input type="text" id="email" name="user[email]" value="<%= formData?formData.email:(user?user.email:"") %>"><br>
+    <label>닉네임* <span id="nickname_error" class="error_message"><%= nicknameError?nicknameError:"" %></span></label>
+    <input type="text" id="nickname" name="user[nickname]" value="<%= formData?formData.nickname:(user?user.nickname:"") %>"><br>
+    <label>새 비밀번호</label>
+    <input type="password" id="new_password" name="user[newPassword]" value=""><br>
+    <label>새 비밀번호 재확인 <span id="password_confirmation_error" class="error_message"></span></label>
+    <input type="password" id="password_confirmation" name="user[passwordConfirmation]" value=""><br>
+    <p><small>*필수 정보</small></p>
+    <input type="button" class="submit_btn" value="완료">
+  </form>
+  <a href="javascript:history.back()"><button>이전</button>
+</div>
+</td>
+<!-- javascript -->
+<script type="text/javascript" src="/js/userform.js"></script>
+
+<!-- main end -->
+    </div><!--users end -->
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+  </body>
+</html>

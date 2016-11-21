@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<table align="center" width="1024" border="0" cellspacing="0" cellpadding="0">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <div class="posts">
+    <% include partials/top %>
+<!-- main start-->
+
+<!-- views/posts/show.ejs -->
+<td class = "posts" colspan="7" height="453">
+<div class="show">
+  <h3><%= data.title %></h3>
+  <div class="time">생성일 <br>
+    <%= data.createdAt.toLocaleDateString() %> <br>
+    <%= data.createdAt.toLocaleTimeString() %>
+  </div>
+  <% if(data.updatedAt) { %>
+    <div class="time">수정일 <br>
+      <%= data.updatedAt.toLocaleDateString() %> <br>
+      <%= data.updatedAt.toLocaleTimeString() %>
+    </div>
+  <% } %>
+  <p class="body"><%= data.body %><p>
+  <div class="tools">
+    <a href="/posts/<%=data._id%>/edit"><button>편집</button></a>
+    <!-- Delete button here -->
+    <form class="btn_delete" action="/posts/<%=data._id%>?_method=delete" method="post">
+      <button type="submit">삭제</button>
+    </form>
+  </div>
+  <a href="/posts"><button>이전</button><a>
+</div>
+</td>
+<!-- main end -->
+    </div><!--posts end -->
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+  </body>
+</html>

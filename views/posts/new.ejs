@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<table align="center" width="1024" border="0" cellspacing="0" cellpadding="0">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <div class="posts">
+    <% include partials/top %>
+<!-- main start-->
+
+<!-- views/posts/index.ejs -->
+<td class = "posts" colspan="7" height="453">
+<div class="new">
+  <h3>새 글</h3>
+  <form class="posts_form" action="/posts" method="post">
+    <label>제목</label>
+    <input type="text" name="post[title]" value="">
+    <label>내용</label>
+    <textarea name="post[body]"></textarea>
+    <button type="submit">완료</button>
+  </form>
+  <a href="/posts"><button>이전</button><a>
+</div>
+</td>
+
+<!-- main end -->
+    </div><!--posts end -->
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+  </body>
+</html>

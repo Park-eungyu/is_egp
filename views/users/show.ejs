@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<table align="center" width="1024" border="0" cellspacing="0" cellpadding="0">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <div class="users">
+<!-- main start-->
+
+<!-- views/users/show.ejs -->
+<td class = "users" colspan="7" height="453">
+<div class="show">
+  <h3>사용자 정보</h3>
+  <div class="content">
+    <p class="user_info">Email<small> : <%= user.email %></small></p>
+    <p class="user_info">닉네임<small> : <%= user.nickname %></small></p>
+    <a href="/users/<%=user._id%>/edit"><button>수정</button></a>
+  </div>
+  <a href="/"><button>이전</button>
+</div>
+</td>
+<!-- main end -->
+    </div><!--users end -->
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+  </body>
+</html>
